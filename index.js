@@ -39,7 +39,7 @@ client.addListener('pm', function (from, message) {
       }
       var imageUri = message_parts[0];
       var imageExt = getExtension(imageUri);
-      if(imageExt !== ".jpg" || imageExt !== ".jpeg" || imageExt !== ".png" || imageExt !== ".gif") {
+      if(!imageExt || imageExt.length < 4 || imageExt.length > 5) {
         imageExt = ".jpg";
         imageUri += imageExt;
       }
