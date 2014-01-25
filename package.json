@@ -8,7 +8,8 @@
     "express": "~3.4.8",
     "randomstring": "~1.0.2",
     "irc": "~0.3.6",
-    "csv": "~0.3.6"
+    "csv": "~0.3.6",
+    "caption": "0.0.1"
   },
   "scripts": {
     "install": "mkdir public"
