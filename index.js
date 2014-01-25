@@ -39,20 +39,20 @@ client.addListener('pm', function (from, message) {
       }
       var imageUri = message_parts[0];
       var imageExt = getExtension(imageUri);
-      if(!imageExt || imageExt.length < 4 || imageExt.length > 5) {
-        imageExt = ".jpg";
-        imageUri += imageExt;
-      }
       var captionOptions = {
         caption: message_parts[1],
         bottomCaption: message_parts[2],
-        outputFile: path.join("public", randomstring.generate(7)+imageExt)
+        outputFile: path.join("public", randomstring.generate(7)+(imageExt || '.jpg'))
       };
       var method = null;
       if(imageUri.indexOf("http") === 0) {
         method = caption.url;
       } else {
         method = caption.path;
+        if(!imageExt || imageExt.length < 4 || imageExt.length > 5) {
+          imageExt = ".jpg";
+          imageUri += imageExt;
+        }
         imageUri = path.join("memes", imageUri);
       }
       method(imageUri, captionOptions, function(err, captionedImage) {
