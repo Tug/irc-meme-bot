@@ -1,0 +1,16 @@
+{
+  "name": "irc-meme-bot",
+  "description": "IRC meme generator",
+  "version": "0.0.1",
+  "author": "Tugdual de Kerviler <dekervit@gmail.com>",
+  "main": "./index.js",
+  "dependencies": {
+    "express": "~3.4.8",
+    "randomstring": "~1.0.2",
+    "irc": "~0.3.6",
+    "csv": "~0.3.6"
+  },
+  "scripts": {
+    "install": "mkdir public"
+  }
+}
