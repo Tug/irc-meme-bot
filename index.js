@@ -58,10 +58,10 @@ client.addListener('pm', function (from, message) {
       method(imageUri, captionOptions, function(err, captionedImage) {
         if(err) {
           console.log(err);
-          client.say(from, SERVER_URL+"/"+captionOptions.outputFile);
+          client.say(from, err.message || err.toString());
           return;
         }
-        client.say(channels[0], SERVER_URL+"/"+captionOptions.outputFile);
+        client.say(channels[0], err);
       });
     });
   }
