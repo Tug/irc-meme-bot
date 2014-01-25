@@ -26,7 +26,10 @@ function getExtension(filename) {
 
 client.addListener('pm', function (from, message) {
   console.log('info: message received:', message + ' from:' + from);
-  if(message == "list") {
+  if(message == "help") {
+    client.say(from, "list                                                list local files");
+    client.say(from, "<local_filename|image_url> <caption1> [<caption2>]  generate the meme and print the image url in the public channel");
+  } else if(message == "list") {
     exec("ls memes", function (error, stdout, stderr) {
       stdout = stdout.replace(/.jpg\n/g, ' ');
       stdout = stdout.replace(/\n/g, ' ');
