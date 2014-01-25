@@ -28,6 +28,7 @@ client.addListener('pm', function (from, message) {
   console.log('info: message received:', message + ' from:' + from);
   if(message == "list") {
     exec("ls memes", function (error, stdout, stderr) {
+      stdout = stdout.replace(/.jpg\n/g, ' ');
       stdout = stdout.replace(/\n/g, ' ');
       client.say(from, stdout);
     });
