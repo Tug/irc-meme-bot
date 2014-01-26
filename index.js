@@ -65,7 +65,7 @@ client.addListener('pm', function (from, message) {
           client.say(from, err.message || err.toString());
           return;
         }
-        client.say(channels[0], SERVER_URL+"/"+captionOptions.outputFile);
+        client.say(channels[0], from+": "+SERVER_URL+"/"+captionOptions.outputFile);
       });
     });
   }
