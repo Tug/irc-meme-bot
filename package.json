@@ -5,13 +5,14 @@
   "author": "Tugdual de Kerviler <dekervit@gmail.com>",
   "main": "./index.js",
   "dependencies": {
-    "express": "~3.4.8",
-    "randomstring": "~1.0.2",
-    "irc": "~0.3.6",
+    "caption": "0.1.1",
     "csv": "~0.3.6",
-    "caption": "0.0.1"
+    "express": "~3.4.8",
+    "irc": "~0.4.0",
+    "randomstring": "~1.0.2",
+    "yargs": "^3.29.0"
   },
   "scripts": {
-    "install": "mkdir public"
+    "install": "mkdir -p public"
   }
 }

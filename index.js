@@ -3,16 +3,19 @@ var caption = require('caption');
 var irc = require('irc');
 var path = require('path');
 var randomstring = require("randomstring");
-var ircServer = 'irc.freenode.org';
-var channels = process.argv.slice(2);
 var exec = require("child_process").exec;
+var argv = require('yargs').argv;
+var ircServer = argv.ircServer || 'irc.freenode.net';
+var channel = argv.chan;
+var nick = argv.nick || 'memegen';
 
-var SERVER_URL = "SET SERVER URL";
+var serverUrl= argv.host ? argv.host : 'http://'+require('os').hostname();
 
-var client = new irc.Client(ircServer, 'memegen', {
-    channels: channels,
+var client = new irc.Client(ircServer, nick, {
+    channels: [channel],
+    debug: true
 });
-console.log("Connecting to "+ircServer+" on channels ", channels);
+console.log("Connecting to "+ircServer+" on channel", channel);
 
 
 function endsWith(str, suffix) {
@@ -65,7 +68,7 @@ client.addListener('pm', function (from, message) {
           client.say(from, err.message || err.toString());
           return;
         }
-        client.say(channels[0], from+": "+SERVER_URL+"/"+captionOptions.outputFile);
+        client.say(channel, from+": "+serverUrl+"/"+captionOptions.outputFile);
       });
     });
   }
